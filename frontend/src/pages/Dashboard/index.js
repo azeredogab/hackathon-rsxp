@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import api from '../../services/api';
 
 import "./styles.css";
 import m1 from "../../assets/userMentor1.jpg"
@@ -15,95 +16,39 @@ import m10 from "../../assets/userMentor10.jpg"
 
 
 export default function Dashboard({ history }) {
+  const [mentors, setMentors] = useState([]);
 
-  const mentors = [
-    {
-      name: 'Claudia Silva',
-      age: 21,
-      course: 'Analise de Sistemas',
-      university: 'Unip',
-      semester: 'Terceiro',
-      price: 15.00,
-      thumbnail_url: m1,
-    }, {
-      name: 'Carlos Roberto',
-      age: 23,
-      course: 'Analise de Sistemas',
-      university: 'Uninove',
-      semester: 'Quarto',
-      price: 12.00,
-      thumbnail_url: m2,
-    }, {
-      name: 'Mariana Lima',
-      age: 21,
-      course: 'Analise de Sistemas',
-      university: 'UBC',
-      semester: 'Quinto',
-      price: 13.00,
-      thumbnail_url: m3,
-    }, {
-      name: 'Mariano Lima',
-      age: 24,
-      course: 'Analise de Sistemas',
-      university: 'Uninove',
-      semester: 'Quarto',
-      price: 14.00,
-      thumbnail_url: m4,
-    }, {
-      name: 'Rircardo Manolo',
-      age: 21,
-      course: 'Analise de Sistemas',
-      university: 'Unip',
-      semester: 'Sexto',
-      price: 18.00,
-      thumbnail_url: m5,
-    },
-
-
-    {
-      name: 'Olavo Castro',
-      age: 26,
-      course: 'Analise de Sistemas',
-      university: 'UBC',
-      semester: 'Terceiro',
-      price: 18.00,
-      thumbnail_url: m6,
-    }, {
-      name: 'Victor Akemi',
-      age: 22,
-      course: 'Analise de Sistemas',
-      university: 'Unip',
-      semester: 'Quarto',
-      price: 19.00,
-      thumbnail_url: m7,
-    }, {
-      name: 'David Silva',
-      age: 23,
-      course: 'Analise de Sistemas',
-      university: 'Uninone',
-      semester: 'Quarto',
-      price: 11.00,
-      thumbnail_url: m8,
-    }, {
-      name: 'Camila Camilo',
-      age: 21,
-      course: 'Analise de Sistemas',
-      university: 'UBC',
-      semester: 'Quinto',
-      price: 16.00,
-      thumbnail_url: m9,
-    }, {
-      name: 'Daniel Oliveira',
-      age: 22,
-      course: 'Analise de Sistemas',
-      university: 'Uninove',
-      semester: 'Quarto',
-      price: 11.00,
-      thumbnail_url: m10,
-    }
+  const images = [
+    m1,
+    m2,
+    m3,
+    m4,
+    m5,
+    m6,
+    m7,
+    m8,
+    m9,
+    m10,
   ];
 
-   function handleClick() {
+  useEffect(() => {
+    api
+      .get('/mentors')
+      .then(({ data }) => {
+        let mentorsData = data.mentors.data
+
+        mentorsData = mentorsData.map((mentor, index) => {
+          mentor.thumbnail_url = images[index];
+
+          return mentor;
+        });
+
+        setMentors(mentorsData);
+      })
+      .catch(err => console.log(err));
+  }, []);
+
+  function handleClick() {
     history.push("/details");
   }
 
