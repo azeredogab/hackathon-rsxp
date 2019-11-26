@@ -1,0 +1,16 @@
+version: "3"
+services:
+  phpserver:
+    build: ./docker/phpserver
+    volumes:
+      - ./:/var/www/html
+    links:
+      - db
+  nginx:
+    build: ./docker/nginx
+    links:
+      - phpserver
+    volumes:
+      - ./:/var/www/html:cached
+  db:
+    build: ./docker/mysql
