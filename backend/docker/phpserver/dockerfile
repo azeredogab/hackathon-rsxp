@@ -1,0 +1,19 @@
+FROM php:7.3-fpm
+
+RUN apt-get update \
+    && apt-get install -y curl libxml2-dev libzip-dev unzip
+
+RUN docker-php-ext-configure zip --with-libzip
+RUN docker-php-ext-install pdo pdo_mysql mysqli pcntl zip
+
+RUN pecl install redis
+
+RUN docker-php-ext-enable redis
+
+COPY custom.ini /usr/local/etc/php/conf.d/custom.ini
+
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+    && php composer-setup.php \
+    && rm composer-setup.php \
+    && chmod +x composer.phar \
+    && mv composer.phar /usr/local/bin/composer
