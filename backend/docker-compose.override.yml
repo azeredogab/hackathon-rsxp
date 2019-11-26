@@ -1,0 +1,15 @@
+version: "3"
+services:
+  nginx:
+    ports:
+      - 8000:80
+  db:
+    ports:
+      - 3306:3306
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=icode
+      - MYSQL_USER=icode
+      - MYSQL_PASSWORD=123456
