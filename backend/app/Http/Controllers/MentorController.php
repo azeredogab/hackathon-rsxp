@@ -10,7 +10,7 @@ class MentorController extends Controller
     public function index()
     {
         return response()->json([
-            'mentors' => Mentor::paginate(),
+            'mentors' => Mentor::paginate(10),
         ]);
     }
 
