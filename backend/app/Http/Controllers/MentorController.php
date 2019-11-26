@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mentor;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class MentorController extends Controller
 {
@@ -13,8 +14,16 @@ class MentorController extends Controller
         ]);
     }
 
-    public function show(Mentor $mentor)
+    public function show($id)
     {
+        try {
+            $mentor = Mentor::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'error' => 'Mentor not found',
+            ], 404);
+        }
+
         return response()->json([
             'mentor' => $mentor,
         ]);
