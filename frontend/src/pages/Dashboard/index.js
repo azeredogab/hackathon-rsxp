@@ -63,7 +63,7 @@ export default function Dashboard({ history }) {
             <p><strong>{mentor.name}</strong></p>
             <p>{mentor.course}</p>
             <p>{mentor.university}</p>
-            <p><span>{mentor.semester} semestre</span></p>
+            <p><span>{mentor.semester}º semestre</span></p>
           </div>
           
           <div className="detail-price">
