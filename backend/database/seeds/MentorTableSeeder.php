@@ -15,7 +15,7 @@ class MentorTableSeeder extends Seeder
         factory(Mentor::class, 2)
             ->create()
             ->each(function ($mentor) {
-                $mentor->price = 0;
+                $mentor->price = null;
 
                 $mentor->save();
             })
