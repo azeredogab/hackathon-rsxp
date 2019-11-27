@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mentor extends Model
+class Skill extends Model
 {
     protected $guarded = ['id'];
 
-    public function skills()
+    public function mentor()
     {
-        return $this->hasMany(Skill::class);
+        return $this->belongsTo(Mentor::class);
     }
 }
