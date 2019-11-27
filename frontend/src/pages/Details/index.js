@@ -1,25 +1,33 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { useParams } from 'react-router-dom'; 
 
 import "./style.css";
 import m1 from "../../assets/userMentor1.jpg";
 import m8 from "../../assets/userMentor8.jpg";
 import calendar from "../../assets/calendar.png";
 
-export default function Details() {
-  const mentors = [
-    {
-      name: "Claudia Silva",
-      age: 21,
-      course: "Analise de Sistemas",
-      university: "Unip",
-      semester: "Terceiro",
-      price: 15.0,
-      thumbnail_url: m1,
-      students: 20,
-      experince: "10h"
-    }
-  ];
+import api from '../../services/api';
+import { range } from '../../services/helpers'
 
+
+export default function Details() {
+  const { id } = useParams();
+  const [mentors, setMentors] = useState([]);
+  
+  useEffect(() => {
+    api
+      .get(`/mentors/${id}`)
+      .then(({ data }) => {
+        let mentorsData = data.mentor;
+        mentorsData.thumbnail_url = m1; 
+        mentorsData.students = range(5, 30); 
+        mentorsData.experince = range(80, 200); 
+
+        setMentors([mentorsData]);
+      })
+      .catch(err => console.log(err));
+  }, []);
+  
   function handleClick() {
     // history.push("/details");
   }
@@ -40,6 +48,9 @@ export default function Details() {
                   <p>
                     <span>{mentor.semester} semestre</span>
                   </p>
+                  <div className="skills-wrapper">
+                    {mentor.skills.slice(0,6).map(skill => (<div className="skill">{skill.name}</div>))}
+                  </div>
                 </div>
                 <div className="students">
                   <p>
