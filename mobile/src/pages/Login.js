@@ -7,10 +7,8 @@ import {
   Image,
   Text,
   TextInput,
-  TextPassword,
   TouchableOpacity,
   StyleSheet,
-  ScrollView,
   ImageBackground
 } from "react-native";
 

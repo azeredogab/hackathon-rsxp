@@ -11,6 +11,7 @@ import {
 } from "react-native";
 
 import api from "../services/api";
+import starts from "../assets/stars.png";
 
 function MentorList({ navigation }) {
   const [mentors, setMentors] = useState([]);
@@ -57,36 +58,35 @@ function MentorList({ navigation }) {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item, index }) => (
           <View style={styles.listItem}>
-              <View style={{flex: 1, flexDirection: 'row'}}>
-  
+              <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
                 <Image
                   style={styles.thumbnail}
                   source={{ uri: img[index] }}
                 />
-
-                <View style={{flex: 1, height: 50}} >
-                  <Text style={styles.name}>
-                    {item.name}
-                  </Text>
-                  <Text style={styles.text}>
-                    {item.age} anos
-                  </Text>
-                  <Text style={styles.text}>
-                    {item.country}
-                  </Text>
-                  <Text style={styles.text}>
-                    {item.university}
-                  </Text>
-                </View>
-
-                  <Text style={styles.price}>
-                    {item.price ? `R$ ${item.price}` : "Gratuito"}
-                  </Text>
+                <Image
+                  style={styles.stars}
+                  source={{ uri: starts }} />
               </View>
 
+              <Text style={styles.name}>
+                {item.name}
+              </Text>
+              <Text style={styles.text}>
+                {item.university}
+              </Text>
+              <Text style={styles.text}>
+                {item.country}
+              </Text>
+              <Text style={styles.text}>
+                {item.university}
+              </Text>          
+
+              <Text style={styles.price}>
+                {item.price ? `R$ ${item.price}` : "Gratuito"}
+              </Text>
 
               <TouchableOpacity onPress={() => handleNavigate(item._id) } style={styles.button}>
-                <Text style={styles.buttonText}>Saber mais do Mentor</Text>
+                <Text style={styles.buttonText}>Ver Detalhes</Text>
               </TouchableOpacity>
 
 
@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
     marginRight: 15,
     marginBottom: 15,
     padding: 10,
-    backgroundColor: "#CCC",
   },
 
   thumbnail: {
@@ -129,6 +128,8 @@ const styles = StyleSheet.create({
     height: 100,
     resizeMode: "cover",
     borderRadius: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   company: {
@@ -144,27 +145,27 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#FFF",
+    color: "#000",
     marginTop: 0
   },
 
   button: {
     height: 32,
-    backgroundColor: "#FFF",
+    backgroundColor: "#C000B9",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 2,
+    borderRadius: 5,
     marginTop: 15,
   },
 
   name: {
-    color: "#FFF",
+    color: "#C000B9",
     fontSize: 20,
     fontWeight: "bold",
   },
 
   buttonText: {
-    color: "#000",
+    color: "#FFF",
     fontWeight: "bold",
     fontSize: 12
   }
