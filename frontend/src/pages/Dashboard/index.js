@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../../services/api";
 
+import Header from "../../components/Header";
+import NextSession from "../../components/NextSession";
+
 import "./styles.css";
 import m1 from "../../assets/userMentor1.jpg";
 import m2 from "../../assets/userMentor2.jpg";
@@ -43,45 +46,49 @@ export default function Dashboard({ history }) {
   }
 
   return (
-    <div className="wrapper">
-      <h2>Mentores</h2>
-      <ul className="mentor-list">
-        {mentors.map(mentor => (
-          <li key={mentor.name} onClick={() => handleClick(mentor.id)}>
-            <div>
-              <img className="mentor-thumbnail" src={mentor.thumbnail_url} />
-              <br />
-              <img className="mentor-rating" src={stars} />
-              <br />
-              {range(5, 30)} avaliações
-            </div>
-            <div className="details">
-              <p>
-                <strong>{mentor.name}</strong>
-              </p>
-              <p>{mentor.course}</p>
-              <p>{mentor.university}</p>
-              <p>
-                <span>{mentor.semester}º semestre</span>
-              </p>
-              <div className="skills-wrapper">
-                {mentor.skills.slice(0,6).map(skill => (<div className="skill">{skill.name}</div>))}
+
+    <>
+      <div>
+        <NextSession />
+      </div>
+      <div className="wrapper">
+        <h2>Mentores</h2>
+        <ul className="mentor-list">
+          {mentors.map(mentor => (
+            <li key={mentor.name} onClick={() => handleClick()}>
+              <div>
+                <img className="mentor-thumbnail" src={mentor.thumbnail_url} />
+                <br />
+                <img className="mentor-rating" src={stars} />
+                <br />
+                10 avaliações
               </div>
-            </div>
+              <div className="details">
+                <p>
+                  <strong>{mentor.name}</strong>
+                </p>
+                <p>{mentor.course}</p>
+                <p>{mentor.university}</p>
+                <p>
+                  <span>{mentor.semester}º semestre</span>
+                </p>
+              </div>
 
-            <div className="detail-price">
-              <p className="mentor">Mentoria</p>
-              <p className="price">
-                R$
-                <span>{mentor.price}</span>
-              </p>
-              <p className="trial">Sessão de <b>30 minutos grátis</b></p>
+              <div className="detail-price">
+                <p className="mentor">Mentoria</p>
+                <p className="price">
+                  {mentor.price ? `R$ ${mentor.price}` : "Gratuito"}
+                  {/* R$
+                <span>{mentor.price}</span> */}
+                </p>
+                <p className="trial">Sessão de 30 minutos</p>
 
-              <button onClick={() => handleClick()}>Ver detalhes</button>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+                <button onClick={() => handleClick()}>Ver detalhes</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }

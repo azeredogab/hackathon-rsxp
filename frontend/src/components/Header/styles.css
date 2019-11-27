@@ -1,0 +1,41 @@
+.header {
+  background: #fff;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .container-menu {
+  width: 940px;
+  max-width: 940px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header ul {
+  display: flex;
+  align-items: center;
+}
+
+.header ul li {
+  display: inline;
+  margin-right: 30px;
+  text-transform: uppercase;
+  color: #333;
+  font-size: 14px;
+}
+
+.header .aluno {
+  display: flex;
+  align-items: center;
+}
+.header .aluno span {
+  text-align: right;
+}
+
+.header .aluno .mentor-thumbnail {
+  width: 45px;
+  height: auto;
+  margin-left: 10px;
+}
