@@ -4,17 +4,35 @@
 use App\Mentor;
 use Faker\Generator as Faker;
 
-$factory->define(Mentor::class, function (Faker $faker) {
+
+$universities = [
+    'Estácio', 
+    'Veiga de Almeida', 
+    'UFRJ', 
+    'UFF'
+]; 
+
+$courses = [
+    'Análise de Sistemas', 
+    'Engenharia de Computação', 
+    'Sistemas de Informação'
+];
+
+$factory->define(Mentor::class, function (Faker $faker) use ($universities, $courses){
+
+    $randUniversity = array_rand($universities); 
+    $randCourses = array_rand($courses); 
+
     return [
         'name' => $faker->name(),
-        'age' => $faker->numberBetween(20, 80),
+        'age' => $faker->numberBetween(20, 50),
         'country' => 'Brasil',
         'state' => 'SP',
         'city' => 'São Paulo',
-        'university' => 'IFSP',
-        'course' => 'ADS',
+        'university' => $universities[$randUniversity],
+        'course' => $courses[$randCourses],
         'semester' => $faker->numberBetween(1, 10),
-        'price' => '20000',
+        'price' => $faker->numberBetween(20, 50),
         'video' => 'http://urldovideo.com.br',
     ];
 });
