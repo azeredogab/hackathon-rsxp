@@ -1,14 +1,24 @@
+.wrapper {
+  border-radius: 4px;
+  padding: 30px;
+  background: #fff;
+}
+
 h2 {
   font-size: 30px;
   font-weight: bold;
   text-align: left;
   text-transform: uppercase;
-  margin-bottom: 20px;;
+  margin-bottom: 20px;
 }
 
 .mentor-thumbnail {
   border-radius: 100px;
   height: 120px;
+}
+
+.mentor-rating {
+  margin-top: 10px;
 }
 
 ul.mentor-list {
@@ -20,13 +30,12 @@ ul.mentor-list {
 ul.mentor-list li {
   display: flex;
   margin-bottom: 40px;
-  padding: 20px;
+  padding: 20px 0;
   border-bottom: 3px solid #f5f5f5;
-
 }
 
 ul.mentor-list li:hover {
-  border-bottom: 3px solid #C000B9;
+  border-bottom: 3px solid #c000b9;
   cursor: pointer;
 }
 
@@ -48,7 +57,6 @@ ul.mentor-list li span {
   font-size: 12px;
 }
 
-
 .mentor-list .details {
   text-align: left;
   margin: 10px;
@@ -56,19 +64,33 @@ ul.mentor-list li span {
 }
 
 .mentor-list .detail-price button {
-  background-color: #C000B9;
-  color: #FFF;
+  background-color: #c000b9;
+  color: #fff;
   border: none;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+  margin-top: 10px;
+}
+.mentor-list .detail-price {
+  min-width: 190px;
+}
+
+.mentor-list .detail-price .trial {
+  font-size: 12px;
+}
+
+.mentor-list .detail-price .price {
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .mentor-list .detail-price p > span {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
-} 
+  text-decoration: line-through;
+}
 
 .mentor-list .detail-price .mentor {
-  margin-bottom: 10px;
+  font-size: 18px;
 }

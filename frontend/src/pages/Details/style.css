@@ -1,21 +1,31 @@
-.detail-container {
+.detail {
   float: left;
-  width: 80%;
+  border-radius: 4px;
+  padding: 0 30px 0 0;
+  width: 70%;
+}
+
+.detail-container {
+  background: #fff;
+  border-radius: 4px;
+  padding: 30px;
+  margin-bottom: 30px;
 }
 
 .details-price {
   float: right;
-  width: 20%;
-  margin-top:25px;
+  width: 30%;
+  background: #fff;
+  border-radius: 4px;
+  padding: 30px;
 }
-
 
 h2 {
   font-size: 30px;
   font-weight: bold;
   text-align: left;
   text-transform: uppercase;
-  margin-bottom: 20px;;
+  margin-bottom: 20px;
 }
 
 .mentor-thumbnail {
@@ -26,13 +36,12 @@ h2 {
 ul.mentor-details {
   width: 100%;
   list-style: none;
+  margin-bottom: 20px;
 }
 
 ul.mentor-details li {
   display: flex;
-  padding: 20px;
 }
-
 
 ul.mentor-details li header {
   width: 100%;
@@ -61,7 +70,7 @@ ul.mentor-details li span {
 .mentor-details .detail-price p > span {
   font-size: 20px;
   font-weight: bold;
-} 
+}
 
 .mentor-details .detail-price .mentor {
   margin-bottom: 10px;
@@ -84,10 +93,13 @@ ul.mentor-details li span {
 }
 
 .testimony {
+  float: left;
   padding: 20px;
   border-top: 3px solid #f5f5f5;
   text-align: left;
-
+  background: #fff;
+  border-radius: 4px;
+  padding: 30px;
 }
 
 .testimony .testimony-thumbnail {
@@ -101,7 +113,7 @@ ul.mentor-details li span {
 }
 
 .details-price button {
-  background-color: #C00000;
+  background-color: #c00000;
   border: none;
   color: #fff;
   padding: 20px;
@@ -114,11 +126,11 @@ ul.mentor-details li span {
 }
 
 .details-price button:hover {
-  background-color: #C00000;
+  background-color: #c00000;
 }
 .mentor-details .students,
 .mentor-details .experince {
-  padding: 10px
+  padding: 10px;
 }
 
 .details-price .detail-price p span {
