@@ -98,3 +98,18 @@ button {
 .container button.btn:hover {
   background: #e963e3;
 }
+
+.skills-wrapper {
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap; 
+}
+
+.skills-wrapper .skill {
+  padding: 5px;
+  background: #c0c0c0;
+  margin: 4px 5px;
+  border-radius: 3px;
+  font-size: 13px;
+
+}

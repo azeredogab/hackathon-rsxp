@@ -14,6 +14,7 @@ import m8 from "../../assets/userMentor8.jpg";
 import m9 from "../../assets/userMentor9.jpg";
 import m10 from "../../assets/userMentor10.jpg";
 import stars from "../../assets/stars.png";
+import { range } from "../../services/helpers";
 
 export default function Dashboard({ history }) {
   const [mentors, setMentors] = useState([]);
@@ -37,8 +38,8 @@ export default function Dashboard({ history }) {
       .catch(err => console.log(err));
   }, []);
 
-  function handleClick() {
-    history.push("/details");
+  function handleClick(id) {
+    history.push(`/details/${id}`);
   }
 
   return (
@@ -46,13 +47,13 @@ export default function Dashboard({ history }) {
       <h2>Mentores</h2>
       <ul className="mentor-list">
         {mentors.map(mentor => (
-          <li key={mentor.name} onClick={() => handleClick()}>
+          <li key={mentor.name} onClick={() => handleClick(mentor.id)}>
             <div>
               <img className="mentor-thumbnail" src={mentor.thumbnail_url} />
               <br />
               <img className="mentor-rating" src={stars} />
               <br />
-              10 avaliações
+              {range(5, 30)} avaliações
             </div>
             <div className="details">
               <p>
@@ -63,6 +64,9 @@ export default function Dashboard({ history }) {
               <p>
                 <span>{mentor.semester}º semestre</span>
               </p>
+              <div className="skills-wrapper">
+                {mentor.skills.slice(0,6).map(skill => (<div className="skill">{skill.name}</div>))}
+              </div>
             </div>
 
             <div className="detail-price">
@@ -71,7 +75,7 @@ export default function Dashboard({ history }) {
                 R$
                 <span>{mentor.price}</span>
               </p>
-              <p className="trial">Sessão de 30 minutos grátis</p>
+              <p className="trial">Sessão de <b>30 minutos grátis</b></p>
 
               <button onClick={() => handleClick()}>Ver detalhes</button>
             </div>
