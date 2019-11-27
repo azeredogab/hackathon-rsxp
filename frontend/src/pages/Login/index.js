@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import api from "../../services/api";
+import "./style.css";
 
 export default function Login({ history }) {
   const [email, setEmail] = useState("");
@@ -17,16 +18,14 @@ export default function Login({ history }) {
   }
 
   return (
-    <>
+    <div className="wrapper">
       <p>
-        O iCode veio para o mundo para conectar pessoas em busca de estágio e cursos complementares 
-        e pessoas do ensino médio a apreender o mundo da programação.
+        O iCode veio para o mundo para conectar pessoas em busca de estágio e
+        cursos complementares e pessoas do ensino médio a apreender o mundo da
+        programação.
       </p>
 
-      <p>
-        Aluno se cadastre aqui.
-      </p>
-
+      <p>Aluno se cadastre aqui.</p>
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">E-MAIL</label>
@@ -41,6 +40,6 @@ export default function Login({ history }) {
           Entrar
         </button>
       </form>
-    </>
+    </div>
   );
 }
