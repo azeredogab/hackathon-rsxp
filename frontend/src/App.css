@@ -35,7 +35,6 @@ button {
 }
 
 .content {
-  background: #fff;
   width: 100%;
   margin-top: 50px;
   border-radius: 4px;
@@ -91,11 +90,11 @@ button {
   padding: 0 20px;
   font-size: 16px;
   font-weight: bold;
-  background: #C000B9;
+  background: #c000b9;
   color: #fff;
   cursor: pointer;
 }
 
 .container button.btn:hover {
-  background: #E963E3;
+  background: #e963e3;
 }
