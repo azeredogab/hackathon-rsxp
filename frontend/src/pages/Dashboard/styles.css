@@ -68,10 +68,11 @@ ul.mentor-list li span {
   background-color: #c000b9;
   color: #fff;
   border: none;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 12px 30px;
+  border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  font-weight: 700;
 }
 .mentor-list .detail-price {
   min-width: 190px;
