@@ -10,6 +10,6 @@ class MentorTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Mentor::class, 50)->create();
+        factory(Mentor::class, 10)->create();
     }
 }
