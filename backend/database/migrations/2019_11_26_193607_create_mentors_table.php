@@ -21,7 +21,7 @@ class CreateMentorsTable extends Migration
             $table->string('university');
             $table->string('course');
             $table->string('semester');
-            $table->string('price');
+            $table->string('price')->nullable();
             $table->string('video');
             $table->timestamps();
         });
