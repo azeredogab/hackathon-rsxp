@@ -1,0 +1,46 @@
+.container-next-session {
+  display: flex;
+}
+
+.box-next-session {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.box-next-session:first-child {
+  margin-right: 20px;
+}
+
+.box-next-session .mentor-details {
+  display: flex;
+  align-items: center;
+}
+
+.box-next-session .mentor-thumbnail {
+  width: 80px;
+  height: auto;
+}
+
+.box-next-session .details {
+  text-align: left;
+  margin-left: 15px;
+}
+
+.box-next-session .btn-red a {
+  background-color: #c00000;
+  border: none;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
