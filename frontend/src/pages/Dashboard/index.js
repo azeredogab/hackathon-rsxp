@@ -17,6 +17,7 @@ import m8 from "../../assets/userMentor8.jpg";
 import m9 from "../../assets/userMentor9.jpg";
 import m10 from "../../assets/userMentor10.jpg";
 import stars from "../../assets/stars.png";
+import { range } from "../../services/helpers";
 
 export default function Dashboard({ history }) {
   const [mentors, setMentors] = useState([]);
@@ -40,11 +41,12 @@ export default function Dashboard({ history }) {
       .catch(err => console.log(err));
   }, []);
 
-  function handleClick() {
-    history.push("/details");
+  function handleClick(id) {
+    history.push(`/details/${id}`);
   }
 
   return (
+
     <>
       <div>
         <NextSession />

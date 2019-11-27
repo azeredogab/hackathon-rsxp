@@ -10,14 +10,14 @@ class MentorController extends Controller
     public function index()
     {
         return response()->json([
-            'mentors' => Mentor::paginate(10),
+            'mentors' => Mentor::with('skills')->paginate(10),
         ]);
     }
 
     public function show($id)
     {
         try {
-            $mentor = Mentor::findOrFail($id);
+            $mentor = Mentor::with('skills')->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 'error' => 'Mentor not found',

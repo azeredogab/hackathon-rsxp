@@ -17,7 +17,7 @@ export default function Login({ history }) {
   }
 
   return (
-    <div className="wrapper">
+    <div className="login wrapper">
       <p>
         O iCode veio para o mundo para conectar pessoas em busca de estágio e
         cursos complementares e pessoas do ensino médio a apreender o mundo da
